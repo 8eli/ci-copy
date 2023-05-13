@@ -1,0 +1,14 @@
+background-image {
+    background-image:url("../image/BGV.jpg");
+    background-size: cover;
+}
+.bg-custom {
+    background-color: #F8B195;
+}
+.card-img-top{
+    width: 100px;
+    height: 100px;
+}
+body{
+    background-color: #1e2126;
+}
