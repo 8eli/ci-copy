@@ -5,7 +5,15 @@ class Mary extends BaseController
 {
     public function index()
     {
-        return view('mary/index');
+        $model = new \App\Models\ArtistModel();
+        
+        $artists = $model->FindAll();
+        $data = [
+            'title' => 'Artists',
+            'artists' => $artists,
+        ];
+
+        return view('mary/index', $data);
     }
     
 }

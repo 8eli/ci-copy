@@ -29,8 +29,12 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/mary', 'Mary::index');
-
+$routes->get('/', 'Mary::index');
+$routes->get('/new', 'Artists::new');
+$routes->post('/create', 'Artists::create');
+$routes->get('/edit/(:num)', 'Artists::edit/$1');
+$routes->post('/update', 'Artists::update');
+$routes->get('/delete/(:num)', 'Artists::delete/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

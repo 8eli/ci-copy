@@ -1,15 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?=link_tag('public/styles/bootstrap.min.css')?>
-    <?=link_tag('public/styles/style.css')?>
-    <?=script_tag('public/scripts/bootstrap.bundle.min.js')?>
-    <title>BIGBANG</title>
-</head>
-<body>
+
+<?= $this->extend('layouts/default'); ?>
+<?= $this->section('title') ?><?= $title ?><?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
+<div class="content">
+   <a href="<?= base_url('new') ?>" class="btn btn-success">New</a>
+
+   <div class="container-fluid py-5 mb-5">
+      <div class="d-flex">
+         <?php foreach ($artists as $artist) : ?>
+            <div class="card" style="width: 18rem;">
+               <img src="<?= $artist['img_url'] ?>" class="card-img-top" alt="...">
+               <div class="card-body">
+                  <h5 class="card-title"><?= $artist['name'] ?></h5>
+                  <p class="card-text"><?= $artist['description'] ?></p>
+                  <a href="<?= base_url("edit/$artist[id]") ?>" class="btn btn-primary">Edit</a>
+                  <a href="<?= base_url("delete/$artist[id]") ?>" class="btn btn-danger">Delete</a>
+               </div>
+            </div>
+         <?php endforeach ?>
+      </div>
+   </div>
+</div>
 
 <section class="container">
     <div class="row">
@@ -24,7 +36,7 @@
         flex-column
        ">
           <div class="person-img">
-            <img src="asset/image/gd.jpg" class="img-fluid rounded-circle" alt="GDragon">
+            <img src="public/asset/image/gd.jpg" class="img-fluid rounded-circle" alt="GDragon">
           </div>
           <div class="person-name my-2">
             <h3 class="text-white">GDragon</h3>
@@ -95,7 +107,7 @@
         flex-column
       ">
           <div class="person-img">
-            <img src="asset/image/Daesung.jpg" class="img-fluid rounded-circle" alt="Daesung">
+            <img src="public/asset/image/Daesung.jpg" class="img-fluid rounded-circle" alt="Daesung">
           </div>
           <div class="person-name my-2">
             <h3 class="text-white">Daesung</h3>
@@ -154,7 +166,7 @@
         flex-column
       ">
           <div class="person-img">
-            <img src="asset/image/rr.jpeg" class="img-fluid rounded-circle" alt="Seungri">
+            <img src="public/asset/image/rr.jpeg" class="img-fluid rounded-circle" alt="Seungri">
           </div>
           <div class="person-name my-2">
             <h3 class="text-white">Seungri</h3>
@@ -222,7 +234,7 @@
         flex-column
       ">
           <div class="person-img">
-            <img src="asset/image/taeyang.jpg" class="img-fluid rounded-circle" alt="Taeyang">
+            <img src="public/asset/image/taeyang.jpg" class="img-fluid rounded-circle" alt="Taeyang">
           </div>
           <div class="person-name my-2">
             <h3 class="text-white">Taeyang</h3>
@@ -289,7 +301,7 @@
         flex-column
       ">
           <div class="person-img">
-            <img src="asset/image/Top.jpg" class="img-fluid rounded-circle" alt="Top">
+            <img src="public/asset/image/Top.jpg" class="img-fluid rounded-circle" alt="Top">
           </div>
           <div class="person-name my-2">
             <h3 class="text-white">T.O.P</h3>
@@ -337,13 +349,11 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
       </div>
     </div>
   </div>
 </div>
 
   </section>
-    
-  </body>
- 
-</html>
+  <?= $this->endSection() ?> 
